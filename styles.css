@@ -1,1 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A clean, modern sans-serif font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ffffff; /* White text for contrast */
+    text-align: center;
+    /* Use the colors from your logo for a background gradient */
+    background: linear-gradient(135deg, 
+                #00d4ff, /* A bright blue/teal from your logo */
+                #0099ff, /* A mid-blue */
+                #8800ff, /* A vibrant purple */
+                #ff00ea); /* A bright magenta/pink from your logo */
+    background-size: 400% 400%; /* For animating the gradient */
+    animation: gradientAnimation 15s ease infinite;
+    overflow: hidden; /* Prevent scrollbars */
+}
 
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    padding: 30px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay for text readability */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    transform: translateY(0);
+    animation: fadeIn 1.5s ease-out forwards;
+    opacity: 0; /* Start invisible for the fade-in effect */
+    backdrop-filter: blur(5px); /* Optional: Adds a subtle blur to the background behind the container */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-section {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 250px; /* Adjust size as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4)); /* Adds a subtle shadow to the logo */
+}
+
+.animation-section {
+    margin-bottom: 20px;
+}
+
+.animation {
+    max-width: 150px; /* Adjust size of your WebP animation */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .logo {
+        max-width: 200px;
+    }
+    .animation {
+        max-width: 120px;
+    }
+}

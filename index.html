@@ -3,684 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techven - CODE IT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>TechVen - Under Maintenance</title>
     <style>
-        :root {
-            --turquoise: #3DF5DA;
-            --blue: #2B9CFF;
-            --navy: #001233;
-            --purple: #9D4EDD;
-            --green: #46E65A;
-            --white: #FFFFFF;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: var(--navy);
-            color: var(--white);
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            background-color: rgba(0, 18, 51, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-        }
-        
-        .logo-text {
-            margin-left: 10px;
-        }
-        
-        .logo-text h1 {
-            font-size: 24px;
-            background: linear-gradient(to right, var(--turquoise), var(--blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-        }
-        
-        .logo-text p {
-            font-size: 14px;
-            color: var(--purple);
-        }
-        
-        .code-color {
-            color: var(--purple);
-        }
-        
-        .it-color {
-            color: var(--green);
-        }
-        
-        nav {
-            display: flex;
-            align-items: center;
-        }
-        
-        .menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .menu li {
-            margin-left: 30px;
-        }
-        
-        .menu a {
-            text-decoration: none;
-            color: var(--white);
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .menu a:hover {
-            color: var(--turquoise);
-        }
-        
-        .menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, var(--turquoise), var(--blue));
-            transition: width 0.3s;
-        }
-        
-        .menu a:hover::after {
-            width: 100%;
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 24px;
-        }
-        
-        /* Main */
-        main {
-            padding-top: 100px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            padding: 20px 0;
         }
-        
-        .hero {
+
+        /* Animated background particles */
+        .particle {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            right: 10%;
+            animation-delay: -2s;
+            background: rgba(128, 255, 0, 0.1);
+        }
+
+        .particle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -4s;
+            background: rgba(255, 0, 255, 0.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .container {
             text-align: center;
-            padding: 50px 0;
+            z-index: 10;
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--blue), var(--purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero p {
-            font-size: 18px;
+
+        .logo {
             margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            animation: glow 2s ease-in-out infinite alternate;
         }
-        
-        .under-construction {
-            background: rgba(45, 156, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 40px auto;
-            max-width: 800px;
-            border-left: 4px solid var(--blue);
-        }
-        
-        .under-construction h3 {
-            color: var(--turquoise);
+
+        .logo h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #80ff00, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
             margin-bottom: 10px;
         }
-        
-        .contact-info {
+
+        .logo .tagline {
+            font-size: 1.2rem;
+            color: #80ff00;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.6)); }
+        }
+
+        .maintenance-icon {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .maintenance-icon img {
+            width: 80px;
+            height: 80px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 255, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
+        }
+
+        .message {
             margin: 30px 0;
         }
-        
-        .contact-card {
-            background: rgba(0, 0, 0, 0.2);
+
+        .message h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00ffff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .message p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .countdown {
+            margin: 40px 0;
             padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            transition: transform 0.3s;
-            width: 300px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
         }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
+
+        .countdown h3 {
+            color: #80ff00;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+
+        .time-units {
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 20px;
-        }
-        
-        .phone-icon {
-            background: linear-gradient(135deg, var(--blue), var(--turquoise));
-        }
-        
-        .email-icon {
-            background: linear-gradient(135deg, var(--purple), var(--blue));
-        }
-        
-        .contact-info-text {
-            flex-grow: 1;
-        }
-        
-        .contact-info-text h4 {
-            margin-bottom: 5px;
-        }
-        
-        .contact-info-text a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-info-text a:hover {
-            color: var(--turquoise);
-        }
-        
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--green), #25D366);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            z-index: 99;
-        }
-        
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 30px 0;
-            margin-top: 50px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 20px;
             flex-wrap: wrap;
         }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-logo img {
-            height: 40px;
-        }
-        
-        .footer-text {
-            margin-left: 10px;
-        }
-        
-        .footer-text h2 {
-            font-size: 20px;
-            background: linear-gradient(to right, var(--turquoise), var(--blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-        }
-        
-        .footer-text p {
-            font-size: 12px;
-            color: var(--purple);
-        }
-        
-        .copyright {
-            color: var(--white);
-            opacity: 0.7;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        
-        /* Media Queries */
-        @media screen and (max-width: 768px) {
-            .menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: var(--navy);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: left 0.3s ease;
-            }
-            
-            .menu.active {
-                left: 0;
-            }
-            
-            .menu li {
-                margin: 20px 0;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .contact-card {
-                width: 100%;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .footer-logo {
-                justify-content: center;
-            }
-            
-            .copyright {
-                text-align: center;
-            }
-        }
-        
-        /* Logo Animation */
-        .logo-symbol {
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        
-        /* Code Brackets Symbol */
-        .code-brackets {
-            font-size: 24px;
-            display: inline-block;
-            transform: scaleX(1.2);
-            font-weight: bold;
-            margin: 0 3px;
-        }
-        
-        /* Page Section */
-        .section {
-            padding: 40px 0;
-        }
-        
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 30px;
+
+        .time-unit {
             text-align: center;
-            background: linear-gradient(to right, var(--purple), var(--blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            min-width: 80px;
         }
-        
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+
+        .time-unit .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
-        
-        .card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 25px;
-            transition: transform 0.3s;
-            border-top: 3px solid var(--blue);
+
+        .time-unit .label {
+            font-size: 0.9rem;
+            color: #cccccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        .card:hover {
-            transform: translateY(-10px);
+
+        .contact-info {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(128, 255, 0, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(128, 255, 0, 0.3);
         }
-        
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--blue), var(--turquoise));
-        }
-        
-        .card h3 {
+
+        .contact-info h3 {
+            color: #80ff00;
             margin-bottom: 15px;
-            color: var(--turquoise);
+            font-size: 1.5rem;
+            text-align: center;
         }
-        
-        .card p {
-            color: var(--white);
-            opacity: 0.8;
+
+        .contact-details {
+            text-align: center;
         }
-        
-        .coming-soon-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 18, 51, 0.8);
+
+        .contact-details p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin: 10px 0;
+            padding: 8px 0;
+        }
+
+        .contact-details strong {
+            color: #00ffff;
+            margin-right: 10px;
+        }
+
+        .social-links {
+            margin-top: 30px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 20px;
-            color: var(--white);
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 0.3s;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-        
-        .card:hover .coming-soon-overlay {
-            opacity: 1;
+
+        .social-link {
+            display: inline-block;
+            padding: 12px 18px;
+            background: linear-gradient(45deg, #00ffff, #80ff00);
+            color: #000;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: center;
         }
-        
-        /* Gradient line */
-        .gradient-line {
-            height: 3px;
-            width: 100px;
-            background: linear-gradient(to right, var(--turquoise), var(--blue), var(--purple));
-            margin: 0 auto 40px;
-            border-radius: 3px;
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 0;
+            }
+            .container {
+                margin: 10px;
+                padding: 30px 15px;
+            }
+            .logo h1 { font-size: 2.5rem; }
+            .message h2 { font-size: 2rem; }
+            .message p { font-size: 1rem; }
+            .time-units { gap: 10px; }
+            .time-unit .number { font-size: 2rem; }
+            .contact-details p { font-size: 1rem; }
+            .social-links { gap: 10px; }
+            .social-link { 
+                padding: 10px 15px; 
+                font-size: 0.8rem;
+                min-width: 80px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-symbol">
-                    <span class="code-brackets" style="color: var(--turquoise);">&lt;</span>
-                    <span class="code-brackets" style="color: var(--blue);">&gt;</span>
-                </div>
-                <div class="logo-text">
-                    <h1>Techven</h1>
-                    <p><span class="code-color">CODE</span> <span class="it-color">IT</span></p>
-                </div>
-            </div>
-            <nav>
-                <ul class="menu" id="menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="hamburger" id="hamburger">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+    <!-- Animated background particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+        <div class="logo">
+            <h1>TechVen</h1>
+            <div class="tagline">CODE IT</div>
+        </div> 
+
+        <div class="message">
+            <h2>Under Construction</h2>
+            <p>We're working hard to bring you something amazing!</p>
+            <p>Our new website will be live soon with exciting features.</p>
         </div>
-    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h2>Welcome to Techven</h2>
-                <div class="gradient-line"></div>
-                <p>We transform ideas into powerful digital solutions. Our expertise in coding and technology helps businesses thrive in the digital world.</p>
-                
-                <div class="under-construction">
-                    <h3><i class="fas fa-tools"></i> Website Under Construction</h3>
-                    <p>We're currently working on enhancing our website to serve you better. If you have an urgent inquiry, please reach out to us through the contact information below.</p>
+        <div class="countdown">
+            <h3>Expected Launch</h3>
+            <div class="time-units">
+                <div class="time-unit">
+                    <div class="number" id="days">--</div>
+                    <div class="label">Days</div>
+                </div>
+                <div class="time-unit">
+                    <div class="number" id="hours">--</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div class="time-unit">
+                    <div class="number" id="minutes">--</div>
+                    <div class="label">Minutes</div>
+                </div>
+                <div class="time-unit">
+                    <div class="number" id="seconds">--</div>
+                    <div class="label">Seconds</div>
                 </div>
             </div>
-        </section>
+        </div> 
 
-        <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title">Our Services</h2>
-                <div class="gradient-line"></div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Custom website development tailored to your business needs with responsive design and modern technologies.</p>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>Mobile Applications</h3>
-                        <p>Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.</p>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Backend Solutions</h3>
-                        <p>Robust backend systems and APIs that power your digital products with security and scalability in mind.</p>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="products" class="section">
-            <div class="container">
-                <h2 class="section-title">Our Products</h2>
-                <div class="gradient-line"></div>
-                <div class="card-container">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <h3>E-commerce Solutions</h3>
-                        <p>Complete online shopping platforms with secure payment processing and inventory management.</p>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Analytics Dashboard</h3>
-                        <p>Comprehensive data visualization tools that help you make informed business decisions.</p>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>AI Solutions</h3>
-                        <p>Custom artificial intelligence solutions that automate processes and enhance business efficiency.</p>
-                        <div class="coming-soon-overlay">
-                            <span>Coming Soon</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="gradient-line"></div>
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon phone-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-info-text">
-                            <h4>Phone</h4>
-                            <a href="tel:0115726301">0115726301</a>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon email-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-info-text">
-                            <h4>Email</h4>
-                            <a href="mailto:albertkungu290@gmail.com">albertkungu290@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <a href="https://wa.me/254115726301" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-symbol">
-                        <span class="code-brackets" style="color: var(--turquoise);">&lt;</span>
-                        <span class="code-brackets" style="color: var(--blue);">&gt;</span>
-                    </div>
-                    <div class="footer-text">
-                        <h2>Techven</h2>
-                        <p><span class="code-color">CODE</span> <span class="it-color">IT</span></p>
-                    </div>
-                </div>
-                <div class="copyright">
-                    &copy; 2025 Techven. All rights reserved.
-                </div>
-            </div>
+        <div class="social-links">
+            <a href="mailto:albert@techven.co.ke" class="social-link">Email Us</a>
+            <a href="tel:+254712870654" class="social-link">Call Now</a>
+            <a href="https://wa.me/254115726301" class="social-link" target="_blank">WhatsApp</a>
         </div>
-    </footer>
+    </div>
 
     <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const menu = document.getElementById('menu');
-        
-        hamburger.addEventListener('click', () => {
-            menu.classList.toggle('active');
-            
-            if (menu.classList.contains('active')) {
-                hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        // Countdown timer - set your target date here
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 30); // 30 days from now
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             } else {
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
             }
-        });
-        
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('.menu a');
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Add some interactive particle effects on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.01;
+                const x = e.clientX * speed;
+                const y = e.clientY * speed;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
     </script>
